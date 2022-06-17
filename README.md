@@ -29,6 +29,9 @@ Don't forget that you can run its tests with `npm test` (written with *jest*).
 
 A sample of this project is online at <https://202206desafiofrontend.netlify.app/>.
 
+## Installation
+
+Just run `npm install` in the project directory.
 ## Available Scripts
 
 In the project directory, you can run:
