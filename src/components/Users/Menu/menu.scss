@@ -1,0 +1,14 @@
+.UsersMenu {
+    display: inline-flex;
+    justify-content: flex-end;
+    text-transform: initial;
+    width:fit-content;
+    .dropdown-toggle {
+        &::after {
+            display: none;
+        }
+    }
+    input {
+        pointer-events: none;
+    }
+}

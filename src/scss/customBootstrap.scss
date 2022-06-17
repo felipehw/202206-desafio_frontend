@@ -1,0 +1,24 @@
+$info: #dbf7ff;
+$body-color: #999999;
+$table-hover-bg: #f1f8fc;
+$table-striped-bg: #fafafa;
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
+
+.dropdown-menu {
+    .dropdown-divider {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .dropdown-menu {
+        box-shadow: 1px 1px 4px lightgray, -1px 1px 4px lightgray;
+        border-radius: 5px;
+    }
+    .dropdown-item input {
+        border-color: #33cccc;
+    }
+    .dropdown-item input:checked {
+        background-color: #33cccc;
+    }
+}
