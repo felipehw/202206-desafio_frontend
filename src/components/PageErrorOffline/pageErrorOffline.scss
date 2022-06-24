@@ -1,0 +1,13 @@
+.PageErrorOffline {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+.PageErrorOffline__IconContainer {
+    flex-grow: 1;
+}
+.PageErrorOffline__Icon {
+    height: 100%;
+    max-height: 80vh;
+    width: 100%;
+}

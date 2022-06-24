@@ -1,15 +1,28 @@
 import { API_URL } from "../env";
 import User from "../interfaces/user";
 
-const USERS_URL = `${API_URL}/users/`;
+const USERS_URL = `${API_URL}/users/`; 
 
 const fetchUsers = () => fetch(USERS_URL).then(
-    async (response) => {
+    (response) => {
         if (response.ok) {
-            return (await response.json() as User[]);
+            return response.json() as Promise<User[]>;
         }
-        console.error(response);
-        throw(new Error(`Request status: ${response.status}`));
+        return Promise.reject(response);
     });
 
-export { fetchUsers };
+const onGenericRejectedFetch = (reason: any) => {
+    if (reason instanceof Response) {
+        console.error(
+            `Error from server:
+            Code:${reason.status}.
+            Description: ${reason.statusText}
+            Contact the admin or try again later.`
+        );
+    } else if (typeof reason.message === 'string' && (reason.message as string).includes('NetworkError')) {
+        console.error('Check your internet connection');
+    } else {
+        console.error(reason);
+    }
+}
+export { fetchUsers, onGenericRejectedFetch };

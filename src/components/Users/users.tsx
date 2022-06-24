@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
@@ -22,6 +23,8 @@ type ActiveColumns = {
 };
 
 const Users = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [users, setUsers] = React.useState<User[]>([]);
     const [linesPerPage, setLinesPerPage] = React.useState<LinesPerPage>('default');
     const [activeColumns, setActiveColumns] = React.useState<ActiveColumns>({
@@ -30,7 +33,18 @@ const Users = () => {
         companyName: true,
         profile: true,
     });
-    React.useEffect(() => {fetchUsers().then(users => setUsers(users))}, []);
+    React.useEffect(() => {
+        const onRejected = (reason: any) => {
+            if (reason instanceof Response) {
+                navigate('/failed-request', {state: {prevPathname: location.pathname, status: reason.status, statusText: reason.statusText}});
+            } else if (typeof reason.message === 'string' && (reason.message as string).includes('NetworkError')) {
+                navigate('/offline', {state: {prevPathname: location.pathname}});
+            } else {
+                console.error(reason);
+            }
+        };
+        fetchUsers().then(users => setUsers(users), onRejected);
+    }, [location.pathname, navigate]);
     return (
         <div data-testid="Users" className="Users">
             <Table striped hover>
