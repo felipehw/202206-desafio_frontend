@@ -1,19 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from '@emotion/styled';
 
 import { TbError404 } from 'react-icons/tb';
 
-import './page404.scss';
+const StyledDiv = styled.div`
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+`;
+const StyledDivIconContainer = styled.div`
+    flex-grow: 1;
+`;
+const StyledTbError404 = styled(TbError404)`
+    height: 100%;
+    width: 100%;
+    max-height: 80vh;
+`;
 
 const Page404 = () => {
     return (
-        <div data-testid='Page404' className='Page404 text-center'>
+        <StyledDiv data-testid='Page404' className='text-center'>
             <h1>Invalid URL</h1>
-            <div className="Page404__IconContainer">
-                <TbError404 className="Page404__Icon"/>
-            </div>
+            <StyledDivIconContainer>
+                <StyledTbError404/>
+            </StyledDivIconContainer>
             <p className="lead">Return to the <Link data-testid="LinkToRoot" to='/'>living room</Link>.</p>
-        </div>
+        </StyledDiv>
     );
 };
 

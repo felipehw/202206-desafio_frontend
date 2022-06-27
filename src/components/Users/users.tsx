@@ -1,18 +1,38 @@
 import React from "react";
+import styled from '@emotion/styled';
 import { useLocation, useNavigate } from "react-router-dom";
 
 import Table from "react-bootstrap/Table";
 import Badge from "react-bootstrap/Badge";
 
-import { IconContext } from "react-icons";
 import { HiOutlinePencil } from 'react-icons/hi';
 import { IoMdClose } from 'react-icons/io';
-
-import './users.scss';
 
 import { fetchUsers } from "../../api";
 import User from "../../interfaces/user";
 import Menu from "./Menu/menu";
+import FlatIconButton from "../FlatIconButton/FlatIconButton";
+
+const StyledDiv = styled.div`
+    margin-top: 1rem;
+`;
+const StyledTable = styled(Table)`
+    background-color: white;
+    th:last-child, td:last-child {
+        text-align: end;
+    }
+`;
+const StyledDivUserEditControls = styled.div`
+    display: inline-flex;
+    justify-content: space-around;
+    width: 74px;
+`;
+const StyledHiOutlinePencil = styled(HiOutlinePencil)`
+    color: blue;
+`;
+const StyledIoMdClose = styled(IoMdClose)`
+    color: red;
+`;
 
 type LinesPerPage = 'default'| '50';
 type ActiveColumns = {
@@ -46,8 +66,8 @@ const Users = () => {
         fetchUsers().then(users => setUsers(users), onRejected);
     }, [location.pathname, navigate]);
     return (
-        <div data-testid="Users" className="Users">
-            <Table striped hover>
+        <StyledDiv data-testid="Users">
+            <StyledTable striped hover>
                 <thead>
                     <tr>
                         {activeColumns.name ? <th data-testid="UserCol">Usuário</th> : null}
@@ -70,24 +90,20 @@ const Users = () => {
                             {activeColumns.companyName ? <td>{user.company.name}</td> : null}
                             {activeColumns.profile ? <td><Badge pill bg='info' text='primary'>NOME DO PERFIL</Badge></td> : null}
                             <td>
-                                <div className='UserEditControls'>
-                                    <div className='FlatIconButton UserEditControls__Edit'>
-                                        <IconContext.Provider value={{ className: "UserEditControls__EditIcon" }}>
-                                            <HiOutlinePencil />
-                                        </IconContext.Provider>
-                                    </div>
-                                    <div className='FlatIconButton UserEditControls__Delete'>
-                                        <IconContext.Provider value={{ className: "UserEditControls__DeleteIcon" }}>
-                                            <IoMdClose />
-                                        </IconContext.Provider>
-                                    </div>
-                                </div>
+                                <StyledDivUserEditControls>
+                                    <FlatIconButton>
+                                        <StyledHiOutlinePencil />
+                                    </FlatIconButton>
+                                    <FlatIconButton>
+                                        <StyledIoMdClose />
+                                    </FlatIconButton>
+                                </StyledDivUserEditControls>
                             </td>
                         </tr>
                     ))}
                 </tbody>
-            </Table>
-        </div>
+            </StyledTable>
+        </StyledDiv>
     );
 };
 

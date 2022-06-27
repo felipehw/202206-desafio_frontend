@@ -1,4 +1,6 @@
-.FlatIconButton {
+import styled from '@emotion/styled';
+
+const FlatIconButton = styled.div`
     cursor: pointer;
     width: fit-content;
     padding-right: 0.3rem;
@@ -10,4 +12,6 @@
     &:active {
         background-color: rgb(217, 217, 217, 1);
     }
-}
+`;
+
+export default FlatIconButton;

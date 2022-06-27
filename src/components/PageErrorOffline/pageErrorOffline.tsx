@@ -1,27 +1,39 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import styled from '@emotion/styled';
 
 import { RiWifiOffFill } from 'react-icons/ri';
 
-import './pageErrorOffline.scss';
+const StyledDiv = styled.div`
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+`;
+const StyledDivIconContainer = styled.div`
+    flex-grow: 1;
+`;
+const StyledRiWifiOffFill = styled(RiWifiOffFill)`
+    height: 100%;
+    max-height: 80vh;
+    width: 100%;
+`;
 
 type locationState = { prevPathname: string };
-
 const PageErrorOffline = () => {
     const location = useLocation();
     const locationState = location.state as locationState;
     return (
-        <div data-testid="PageErrorOffline" className="PageErrorOffline text-center">
+        <StyledDiv data-testid="PageErrorOffline" className="text-center">
             <h1>Check your internet connection.</h1>
-            <div className="PageErrorOffline__IconContainer">
-                <RiWifiOffFill className="PageErrorOffline__Icon"/>
-            </div>
+            <StyledDivIconContainer>
+                <StyledRiWifiOffFill />
+            </StyledDivIconContainer>
             <p className="lead">
                 {locationState.prevPathname ? 
                     <Link data-testid="linkToReturn" to={locationState.prevPathname}>Try again</Link> : ''
                 }
             </p>
-        </div>
+        </StyledDiv>
     );
 };
 

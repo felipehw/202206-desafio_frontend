@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import './index.scss';
+import { Global } from '@emotion/react'
+import './scss/customBootstrap.scss';
+import defaultTheme from './theme/default';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -10,6 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <Global styles={defaultTheme}/>
     <BrowserRouter>
       <App />
     </BrowserRouter>
