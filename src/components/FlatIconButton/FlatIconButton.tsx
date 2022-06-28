@@ -7,10 +7,10 @@ const FlatIconButton = styled.div`
     padding-left: 0.3rem;
     border-radius: 10px;
     &:hover {
-        background-color: rgba(233, 236, 239, 1);
+        background-color: var(--custom-brightgray);
     }
     &:active {
-        background-color: rgb(217, 217, 217, 1);
+        background-color: var(--custom-brightgray);
     }
 `;
 

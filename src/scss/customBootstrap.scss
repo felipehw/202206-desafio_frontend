@@ -1,7 +1,11 @@
-$info: #dbf7ff;
-$body-color: #999999;
-$table-hover-bg: #f1f8fc;
-$table-striped-bg: #fafafa;
+@import './variables.scss';
+/* overwriting bootstrap*/
+
+$body-bg: $custom-lotion;
+$body-color: $custom-spanishgray;
+$info: $custom-lightcyan;
+$table-hover-bg: $custom-aliceblue ;
+$table-striped-bg: $custom-lotion;
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";

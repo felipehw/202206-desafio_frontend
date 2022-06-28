@@ -11,17 +11,14 @@ const extendingBootstrap = css`
         border-radius: 5px;
     }
     .dropdown-item input {
-        border-color: #33cccc;
+        border-color: var(--custom-maximumbluegreen);
     }
     .dropdown-item input:checked {
-        background-color: #33cccc;
+        background-color: var(--custom-maximumbluegreen);
     }
   }
 `;
 const globalStyle = css`
-  body {
-    background-color: #fafafa;
-  }
   .table {
     box-shadow: 1px 1px 4px lightgray, -1px 1px 4px lightgray;
     border-radius: 5px;
