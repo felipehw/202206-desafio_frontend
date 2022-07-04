@@ -1,15 +1,24 @@
-@import './variables.scss';
-/* overwriting bootstrap*/
+//@import "~bootstrap/scss/functions"; // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 
+// Default variable overrides here
+@import './variables.scss';
 $body-bg: $custom-lotion;
 $body-color: $custom-spanishgray;
 $info: $custom-lightcyan;
-$table-hover-bg: $custom-aliceblue ;
+$table-hover-bg: $custom-aliceblue;
 $table-striped-bg: $custom-lotion;
 
-/* import bootstrap to set changes */
-@import "~bootstrap/scss/bootstrap";
+/*
+@import "~bootstrap/scss/variables"; // Include variables like $theme-colors
+$custom-colors: (
+    "caution": lightyellow
+);
+$theme-colors: map-merge($theme-colors, $custom-colors); // Merge the maps
+*/
 
+@import "~bootstrap/scss/bootstrap"; // Import all Bootstrap
+
+// Add additional custom code here
 .dropdown-menu {
     .dropdown-divider {
         margin-left: 1rem;
