@@ -12,7 +12,7 @@
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^5.2.0-beta1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^18.2.0",
@@ -33,7 +33,10 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "semi": ["warn", "always", { "omitLastInOneLineBlock": true}]
+    }
   },
   "browserslist": {
     "production": [

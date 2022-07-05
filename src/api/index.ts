@@ -24,5 +24,5 @@ const onGenericRejectedFetch = (reason: any) => {
     } else {
         console.error(reason);
     }
-}
+};
 export { fetchUsers, onGenericRejectedFetch };

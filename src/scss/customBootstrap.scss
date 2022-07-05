@@ -1,10 +1,11 @@
-@import './variables.scss';
-/* overwriting bootstrap*/
+//@import "~bootstrap/scss/functions"; // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 
+// Default variable overrides here
+@import './variables.module.scss';
 $body-bg: $custom-lotion;
 $body-color: $custom-spanishgray;
 $info: $custom-lightcyan;
-$table-hover-bg: $custom-aliceblue ;
+$table-hover-bg: $custom-aliceblue;
 $table-striped-bg: $custom-lotion;
 
 /* import bootstrap to set changes */

@@ -5,6 +5,7 @@ $custom-lightcyan: #dbf7ff;
 $custom-maximumbluegreen: #33cccc;
 $custom-brightgray: #e9ecef;
 
+// Defining CSS variables using Sass variables
 :root {
     --custom-spanishgray: #{$custom-spanishgray};
     --custom-lotion: #{$custom-lotion};
@@ -12,4 +13,14 @@ $custom-brightgray: #e9ecef;
     --custom-lightcyan: #{$custom-lightcyan};
     --custom-maximumbluegreen: #{$custom-maximumbluegreen};
     --custom-brightgray: #{$custom-brightgray};
+}
+
+// Exporting Sass variables to JavaScript environment
+:export {
+    customSpanishGray: $custom-spanishgray;
+    customLotion: $custom-lotion;
+    customAliceBlue: $custom-aliceblue;
+    customLightCyan: $custom-lightcyan;
+    customMaximumBlueGreen: $custom-maximumbluegreen;
+    customBrightGray: $custom-brightgray;
 }
