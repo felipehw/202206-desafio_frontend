@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { CUSTOM_BRIGHTGRAY } from '../../theme/variables';
+import sassVars from '../../scss/variables.module.scss';
 
 const FlatIconButton = styled.div`
     cursor: pointer;
@@ -8,10 +8,10 @@ const FlatIconButton = styled.div`
     padding-left: 0.3rem;
     border-radius: 10px;
     &:hover {
-        background-color: ${CUSTOM_BRIGHTGRAY};
+        background-color: ${sassVars.customBrightGray};
     }
     &:active {
-        background-color: ${CUSTOM_BRIGHTGRAY};
+        background-color: ${sassVars.customBrightGray};
     }
 `;
 

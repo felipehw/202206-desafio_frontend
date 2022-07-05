@@ -1,5 +1,5 @@
-import { css } from '@emotion/react'
-import { CUSTOM_MAXIMUMBLUEGREEN } from './variables';
+import { css } from '@emotion/react';
+import sassVars from '../scss/variables.module.scss';
 
 const extendingBootstrap = css`
   .dropdown-menu {
@@ -12,10 +12,10 @@ const extendingBootstrap = css`
         border-radius: 5px;
     }
     .dropdown-item input {
-        border-color: ${CUSTOM_MAXIMUMBLUEGREEN};
+        border-color: ${sassVars.customMaximumBlueGreen};
     }
     .dropdown-item input:checked {
-        background-color: ${CUSTOM_MAXIMUMBLUEGREEN};
+        background-color: ${sassVars.customMaximumBlueGreen};
     }
   }
 `;
