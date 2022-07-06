@@ -33,7 +33,13 @@
       "react-app/jest"
     ],
     "rules": {
-      "semi": ["warn", "always", { "omitLastInOneLineBlock": true}]
+      "semi": [
+        "warn",
+        "always",
+        {
+          "omitLastInOneLineBlock": true
+        }
+      ]
     }
   },
   "browserslist": {
@@ -50,5 +56,8 @@
   },
   "jest": {
     "resetMocks": false
+  },
+  "devDependencies": {
+    "cypress": "^10.3.0"
   }
 }
