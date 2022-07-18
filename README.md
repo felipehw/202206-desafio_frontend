@@ -25,13 +25,14 @@ It was written with *TypeScript* and utilizes `bootstrap`, `react-bootstrap`, `r
 
 It consumes its data from [JsonPlaceholder](https://jsonplaceholder.typicode.com/) (route `/users`).
 
-Don't forget that you can run its tests with `npm test` (written with *jest*).
+Don't forget that you can run its tests with `npm test` (written with *jest*) and with `npm run cypress:open` (*Cypress* E2E tests).
 
 A sample of this project is online at <https://202206desafiofrontend.netlify.app/>.
 
 ## Installation
 
 Just run `npm install` in the project directory.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -48,6 +49,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run cypress:open`
+
+Launches the *Cypress* E2E test runner in the interactive watch mode.
 
 ### `npm run build`
 
