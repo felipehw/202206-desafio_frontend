@@ -35,3 +35,36 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('clickMenuDropDownItemContent', (dropdownToggleElement, itemContent) => {
+	const dropdownSelector = '.dropdown';
+	const dropdownMenuSelector = '.dropdown-menu';
+	cy.wrap(dropdownToggleElement).should('exist');
+	const dropDownMenuElement = cy.$$(dropdownMenuSelector, dropdownToggleElement.closest(dropdownSelector));
+	// if menu isn't visible, click to show it
+	if (dropDownMenuElement.length === 0 || !dropDownMenuElement.is(":visible")) {
+		cy.wrap(dropdownToggleElement).click();
+	}
+	cy.wrap(dropdownToggleElement)
+		.closest(dropdownSelector)
+		.find(dropdownMenuSelector)
+		.contains(itemContent)
+		.click();
+});
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+		/**
+		 * Method to click in an item of a `Dropdown` React Bootstrap component informing its text content
+		 * @param dropdownToggleElement The jQuery wrapped element of `Dropdown.Toggle` component.
+		 * @param itemContent The text content of the menu item to be clicked
+		 * @example
+		 * clickMenuDropDownItemContent($dropdownToggleElement, 'Logout') // returns void
+		 */
+		clickMenuDropDownItemContent(dropdownToggleElement: JQuery<HTMLElement>, itemContent: string): Chainable<void>
+    }
+  }
+}
+
+export default undefined;
