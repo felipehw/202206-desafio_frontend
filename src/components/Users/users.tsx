@@ -37,7 +37,7 @@ const Users = () => {
         const onRejected = (reason: any) => {
             if (reason instanceof Response) {
                 navigate('/failed-request', {state: {prevPathname: location.pathname, status: reason.status, statusText: reason.statusText}});
-            } else if (typeof reason.message === 'string' && (reason.message as string).includes('NetworkError')) {
+            } else if (reason instanceof TypeError) {
                 navigate('/offline', {state: {prevPathname: location.pathname}});
             } else {
                 console.error(reason);
